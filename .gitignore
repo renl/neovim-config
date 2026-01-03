@@ -1,0 +1,17 @@
+# Plugin data (generated on first run)
+plugin/
+
+# Lazy.nvim state
+.lazy/
+
+# Swap files
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Local overrides (if you want to have machine-specific settings)
+lua/custom/
