@@ -2,6 +2,32 @@
 
 Personal Neovim configuration based on [NvChad v2.5](https://github.com/NvChad/NvChad).
 
+## Table of Contents
+
+- [Quick Setup](#quick-setup)
+- [Manual Installation](#manual-installation)
+- [Requirements](#requirements)
+- [Keybindings & Usage Guide](#keybindings--usage-guide)
+  - [Essential Vim Motions](#essential-vim-motions)
+  - [Custom Keybindings (This Config)](#custom-keybindings-this-config)
+  - [Window Management](#window-management)
+  - [File Explorer (nvim-tree)](#file-explorer-nvim-tree)
+  - [Telescope (Fuzzy Finder)](#telescope-fuzzy-finder)
+  - [Buffers & Tabs (Tabufline)](#buffers--tabs-tabufline)
+  - [LSP (Language Server Protocol)](#lsp-language-server-protocol)
+  - [Git (gitsigns)](#git-gitsigns)
+  - [Comments (NvChad)](#comments-nvchad)
+  - [Terminal](#terminal)
+  - [Which-Key](#which-key)
+  - [GitHub Copilot](#github-copilot)
+- [Useful Commands](#useful-commands)
+- [Tips & Tricks](#tips--tricks)
+- [Structure](#structure)
+- [Key Features](#key-features)
+- [Credits](#credits)
+
+---
+
 ## Quick Setup
 
 ### Linux/macOS
