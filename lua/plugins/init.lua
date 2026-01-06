@@ -16,27 +16,15 @@ return {
   -- test new blink
   -- { import = "nvchad.blink.lazyspec" },
 
-  -- Override nvim-treesitter - pin to version with configs module (NvChad compatibility)
+  -- Extend nvim-treesitter with additional parsers
   {
     "nvim-treesitter/nvim-treesitter",
-    commit = "310f0925ec64c7e54f3ee952679d285b13e5a735", -- last version before configs module was removed
-    event = { "BufReadPost", "BufNewFile" },
-    cmd = { "TSInstall", "TSBufEnable", "TSBufDisable", "TSModuleInfo" },
-    build = ":TSUpdate",
     opts = {
       ensure_installed = {
         "vim", "lua", "vimdoc",
         "html", "css", "markdown", "markdown_inline",
       },
-      highlight = {
-        enable = true,
-        use_languagetree = true,
-      },
-      indent = { enable = true },
     },
-    config = function(_, opts)
-      require("nvim-treesitter.configs").setup(opts)
-    end,
   },
 
   -- Render markdown beautifully inside Neovim
