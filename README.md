@@ -101,8 +101,39 @@ Or use the sync script directly:
 
 - Neovim 0.10+
 - Git
-- A C compiler (for treesitter)
+- A C compiler (for treesitter - see below)
 - [Nerd Font](https://www.nerdfonts.com/) (for icons)
+
+### C Compiler Setup for Treesitter
+
+Treesitter requires a C compiler to build parsers. Choose one:
+
+**Windows:**
+- **Recommended**: Install MinGW via [w64devkit](https://github.com/skeeto/w64devkit/releases) or [MSYS2](https://www.msys2.org/)
+  ```powershell
+  # Using scoop
+  scoop install mingw
+  ```
+- **Alternative**: Visual Studio Build Tools with C++ workload
+  - Must run Neovim from "Developer Command Prompt" or set environment variables
+- **Note**: If you don't have a C compiler, treesitter syntax highlighting won't work, but everything else will function normally. To disable treesitter compilation errors, comment out `ensure_installed` in `lua/plugins/init.lua`
+
+**Linux:**
+```bash
+# Ubuntu/Debian
+sudo apt install build-essential
+
+# Arch
+sudo pacman -S base-devel
+
+# Fedora
+sudo dnf install gcc gcc-c++
+```
+
+**macOS:**
+```bash
+xcode-select --install
+```
 
 ### Optional (recommended)
 - ripgrep (for telescope live grep)

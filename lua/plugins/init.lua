@@ -17,13 +17,18 @@ return {
   -- { import = "nvchad.blink.lazyspec" },
 
   -- Extend nvim-treesitter with additional parsers
+  -- Note: On Windows, treesitter requires a C compiler (gcc/clang recommended)
+  -- See: https://github.com/nvim-treesitter/nvim-treesitter/wiki/Windows-support
   {
     "nvim-treesitter/nvim-treesitter",
     opts = {
+      -- Only install parsers that are essential
+      -- Comment out if you don't have a C compiler set up
       ensure_installed = {
-        "vim", "lua", "vimdoc",
-        "html", "css", "markdown", "markdown_inline",
+        -- "vim", "lua", "vimdoc",
+        -- "html", "css", "markdown", "markdown_inline",
       },
+      auto_install = false,
     },
   },
 
