@@ -109,14 +109,24 @@ Or use the sync script directly:
 Treesitter requires a C compiler to build parsers. Choose one:
 
 **Windows:**
-- **Recommended**: Install MinGW via [w64devkit](https://github.com/skeeto/w64devkit/releases) or [MSYS2](https://www.msys2.org/)
+- **Recommended**: Install MinGW/GCC
   ```powershell
+  # Using winget
+  winget install LLVM.LLVM
+  # Or install GCC via MSYS2
+  winget install MSYS2.MSYS2
+  
   # Using scoop
   scoop install mingw
+  # Or
+  scoop install llvm
   ```
 - **Alternative**: Visual Studio Build Tools with C++ workload
+  ```powershell
+  winget install Microsoft.VisualStudio.2022.BuildTools
+  ```
   - Must run Neovim from "Developer Command Prompt" or set environment variables
-- **Note**: If you don't have a C compiler, treesitter syntax highlighting won't work, but everything else will function normally. To disable treesitter compilation errors, comment out `ensure_installed` in `lua/plugins/init.lua`
+- **Note**: If you don't have a C compiler, treesitter syntax highlighting won't work, but everything else will function normally. To disable treesitter compilation errors, keep `ensure_installed = {}` in `lua/plugins/init.lua`
 
 **Linux:**
 ```bash

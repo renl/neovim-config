@@ -16,13 +16,14 @@ return {
   -- test new blink
   -- { import = "nvchad.blink.lazyspec" },
 
-  -- Override nvim-treesitter to disable auto-installation
+  -- Override nvim-treesitter to disable parser installation
   -- Note: On Windows, treesitter requires a C compiler (gcc/clang recommended)
   -- See: https://github.com/nvim-treesitter/nvim-treesitter/wiki/Windows-support
   {
     "nvim-treesitter/nvim-treesitter",
+    build = false, -- Disable :TSUpdate to prevent compilation
     opts = function(_, opts)
-      -- Completely override ensure_installed to empty array
+      -- Override ensure_installed to empty array
       opts.ensure_installed = {}
       -- Uncomment below if you have a C compiler properly configured:
       -- opts.ensure_installed = { "vim", "lua", "vimdoc", "html", "css", "markdown", "markdown_inline" }
