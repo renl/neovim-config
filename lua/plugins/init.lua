@@ -21,12 +21,10 @@ return {
   -- See: https://github.com/nvim-treesitter/nvim-treesitter/wiki/Windows-support
   {
     "nvim-treesitter/nvim-treesitter",
-    build = false, -- Disable :TSUpdate to prevent compilation
+    build = ":TSUpdate",
     opts = function(_, opts)
-      -- Override ensure_installed to empty array
-      opts.ensure_installed = {}
-      -- Uncomment below if you have a C compiler properly configured:
-      -- opts.ensure_installed = { "vim", "lua", "vimdoc", "html", "css", "markdown", "markdown_inline" }
+      -- Enable parser installation with LLVM/clang
+      opts.ensure_installed = { "vim", "lua", "vimdoc", "html", "css", "markdown", "markdown_inline" }
       return opts
     end,
   },
