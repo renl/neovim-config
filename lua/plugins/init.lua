@@ -16,20 +16,18 @@ return {
   -- test new blink
   -- { import = "nvchad.blink.lazyspec" },
 
-  -- Extend nvim-treesitter with additional parsers
+  -- Override nvim-treesitter to disable auto-installation
   -- Note: On Windows, treesitter requires a C compiler (gcc/clang recommended)
   -- See: https://github.com/nvim-treesitter/nvim-treesitter/wiki/Windows-support
   {
     "nvim-treesitter/nvim-treesitter",
-    opts = {
-      -- Only install parsers that are essential
-      -- Comment out if you don't have a C compiler set up
-      ensure_installed = {
-        -- "vim", "lua", "vimdoc",
-        -- "html", "css", "markdown", "markdown_inline",
-      },
-      auto_install = false,
-    },
+    opts = function(_, opts)
+      -- Completely override ensure_installed to empty array
+      opts.ensure_installed = {}
+      -- Uncomment below if you have a C compiler properly configured:
+      -- opts.ensure_installed = { "vim", "lua", "vimdoc", "html", "css", "markdown", "markdown_inline" }
+      return opts
+    end,
   },
 
   -- Render markdown beautifully inside Neovim
