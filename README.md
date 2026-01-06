@@ -40,6 +40,36 @@ curl -fsSL https://raw.githubusercontent.com/renl/neovim-config/main/setup.sh | 
 irm https://raw.githubusercontent.com/renl/neovim-config/main/setup.ps1 | iex
 ```
 
+## Updating Existing Installation
+
+If you already have the config installed and want to update to the latest version:
+
+### Linux/macOS
+```bash
+cd ~/.config/nvim
+git pull
+# Then run the sync script to update plugins
+curl -fsSL https://raw.githubusercontent.com/renl/neovim-config/main/sync.sh | bash
+```
+
+Or use the sync script directly:
+```bash
+~/.config/nvim/sync.sh
+```
+
+### Windows (PowerShell)
+```powershell
+cd $env:LOCALAPPDATA\nvim
+git pull
+# Then run the sync script to update plugins
+irm https://raw.githubusercontent.com/renl/neovim-config/main/sync.ps1 | iex
+```
+
+Or use the sync script directly:
+```powershell
+& "$env:LOCALAPPDATA\nvim\sync.ps1"
+```
+
 ## Manual Installation
 
 1. **Backup existing config** (if any):

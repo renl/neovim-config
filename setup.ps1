@@ -45,11 +45,21 @@ git clone $RepoUrl $NvimConfigDir
 Remove-Item -Path "$NvimConfigDir\setup.sh" -ErrorAction SilentlyContinue
 Remove-Item -Path "$NvimConfigDir\setup.ps1" -ErrorAction SilentlyContinue
 
+# Sync plugins to match lazy-lock.json
+Write-Host ""
+Write-Host "Syncing plugins to match lazy-lock.json..." -ForegroundColor Green
+try {
+    nvim --headless "+Lazy! restore" +qa 2>$null
+    Write-Host "Plugins synced successfully!" -ForegroundColor Green
+} catch {
+    Write-Host "Note: Plugin sync will happen on first nvim launch" -ForegroundColor Yellow
+}
+
 Write-Host ""
 Write-Host "=== Setup Complete ===" -ForegroundColor Cyan
 Write-Host ""
 Write-Host "Next steps:" -ForegroundColor Yellow
-Write-Host "1. Run 'nvim' - plugins will be installed automatically on first launch"
+Write-Host "1. Run 'nvim' to verify everything works"
 Write-Host "2. Run ':MasonInstall html-lsp css-lsp stylua' to install LSP servers"
 Write-Host ""
 Write-Host "Optional dependencies for best experience:" -ForegroundColor Yellow

@@ -42,11 +42,20 @@ git clone "$REPO_URL" "$NVIM_CONFIG_DIR"
 # Remove setup scripts from the config directory (not needed there)
 rm -f "$NVIM_CONFIG_DIR/setup.sh" "$NVIM_CONFIG_DIR/setup.ps1"
 
+# Sync plugins to match lazy-lock.json
+echo ""
+echo "Syncing plugins to match lazy-lock.json..."
+if nvim --headless "+Lazy! restore" +qa 2>/dev/null; then
+    echo "Plugins synced successfully!"
+else
+    echo "Note: Plugin sync will happen on first nvim launch"
+fi
+
 echo ""
 echo "=== Setup Complete ==="
 echo ""
 echo "Next steps:"
-echo "1. Run 'nvim' - plugins will be installed automatically on first launch"
+echo "1. Run 'nvim' to verify everything works"
 echo "2. Run ':MasonInstall html-lsp css-lsp stylua' to install LSP servers"
 echo ""
 echo "Optional dependencies for best experience:"
