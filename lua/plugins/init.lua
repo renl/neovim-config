@@ -16,9 +16,10 @@ return {
   -- test new blink
   -- { import = "nvchad.blink.lazyspec" },
 
-  -- Override nvim-treesitter to fix module path issue
+  -- Override nvim-treesitter - pin to version with configs module (NvChad compatibility)
   {
     "nvim-treesitter/nvim-treesitter",
+    commit = "cc360a9beb1c40808b974706a1ee77b736a7a78d", -- last version with configs module
     event = { "BufReadPost", "BufNewFile" },
     cmd = { "TSInstall", "TSBufEnable", "TSBufDisable", "TSModuleInfo" },
     build = ":TSUpdate",
@@ -34,7 +35,7 @@ return {
       indent = { enable = true },
     },
     config = function(_, opts)
-      require("nvim-treesitter").setup(opts)
+      require("nvim-treesitter.configs").setup(opts)
     end,
   },
 
