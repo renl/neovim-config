@@ -19,7 +19,7 @@ return {
   -- Override nvim-treesitter - pin to version with configs module (NvChad compatibility)
   {
     "nvim-treesitter/nvim-treesitter",
-    commit = "cc360a9beb1c40808b974706a1ee77b736a7a78d", -- last version with configs module
+    commit = "310f0925ec64c7e54f3ee952679d285b13e5a735", -- last version before configs module was removed
     event = { "BufReadPost", "BufNewFile" },
     cmd = { "TSInstall", "TSBufEnable", "TSBufDisable", "TSModuleInfo" },
     build = ":TSUpdate",
