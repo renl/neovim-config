@@ -111,16 +111,21 @@ Treesitter requires a C compiler to build parsers. Choose one:
 **Windows:**
 - **Recommended**: Install MinGW/GCC
   ```powershell
-  # Using winget
+  # Using winget (RECOMMENDED - easiest setup)
   winget install LLVM.LLVM
+  
   # Or install GCC via MSYS2
   winget install MSYS2.MSYS2
+  # Then in MSYS2: pacman -S mingw-w64-x86_64-gcc
+  # Add to PATH: C:\msys64\mingw64\bin
   
   # Using scoop
   scoop install mingw
   # Or
   scoop install llvm
   ```
+  **IMPORTANT**: After installation, **restart your terminal** (or restart Windows) for the PATH to update, then treesitter parsers will compile automatically.
+  
 - **Alternative**: Visual Studio Build Tools with C++ workload
   ```powershell
   winget install Microsoft.VisualStudio.2022.BuildTools
