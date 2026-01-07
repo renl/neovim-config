@@ -71,4 +71,10 @@ return {
       vim.g.mkdp_filetypes = { "markdown" }
     end,
   },
+
+  -- Follow markdown links with Enter key
+  {
+    "jghauser/follow-md-links.nvim",
+    ft = { "markdown" },
+  },
 }
